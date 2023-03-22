@@ -60,7 +60,11 @@ export class Engine {
                     if(shape === pointShape) continue;
 
                     if(shape.isPointInside(point)) {
-                        point.draw(this.ctx);
+                        point.drawingParams.fillStyle = "red";
+                        point.drawingParams.strokeStyle = "red";
+                    } else {
+                        point.drawingParams.fillStyle = "black";
+                        point.drawingParams.strokeStyle = "black";
                     }
                 }
             }

@@ -3,9 +3,21 @@
 export class Shape {
     
     points = [];
+
+    drawingParams = {
+        strokeStyle: "black",
+        lineWidth: 1,
+        lineCap: "square",
+        lineJoin: "miter",
+    };
     
-    constructor(points) {
+    constructor(points, params = {}) {
         this.points = points;
+
+        this.drawingParams.strokeStyle = params.strokeStyle || params.lineColor || params.color || this.drawingParams.strokeStyle;
+        this.drawingParams.lineWidth = params.lineWidth || this.drawingParams.lineWidth;
+        this.drawingParams.lineCap = params.lineCap || this.drawingParams.lineCap;
+        this.drawingParams.lineJoin = params.lineJoin || this.drawingParams.lineJoin;
     }
 
     draw(ctx) {
@@ -15,7 +27,7 @@ export class Shape {
         for(let i = 0; i < this.points.length; i++) {
 
             let point = this.points[i];
-            // point.draw(ctx);
+            point.draw(ctx);
 
         }
     }
@@ -23,6 +35,12 @@ export class Shape {
     drawLines(ctx) {
 
         ctx.beginPath();
+
+        ctx.strokeStyle = this.drawingParams.strokeStyle;
+        ctx.lineWidth = this.drawingParams.lineWidth;
+        ctx.lineCap = this.drawingParams.lineCap;
+        ctx.lineJoin = this.drawingParams.lineJoin;
+
         let lastPoint = this.points[this.points.length - 1];
         ctx.moveTo(lastPoint.x, lastPoint.y);
 
