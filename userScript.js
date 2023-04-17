@@ -24,17 +24,18 @@ let engine = new Morf.Engine(document.getElementById("canvas"), [
     new Morf.Shape([
         new Morf.Point(
             new Vector2(60, 40), {
-                gravityScale: new Vector2(0, 0.001),
-            }
-        ),
-        new Morf.Point(
-            new Vector2(130, 30), {
                 gravityScale: new Vector2(0, 0),
+                velocity: new Vector2(0, 0.1),
             }
-        ),
-        new Morf.Point(
-            new Vector2(130, 50), {
+            ),
+            new Morf.Point(new Vector2(130, 30), {
                 gravityScale: new Vector2(0, 0),
+                velocity: new Vector2(0, 0.1),
+            }
+            ),
+            new Morf.Point(new Vector2(130, 50), {
+                gravityScale: new Vector2(0, 0),
+                velocity: new Vector2(0, 0.1),
             }
         ),
     ]),

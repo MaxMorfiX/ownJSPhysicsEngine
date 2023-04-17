@@ -9,7 +9,8 @@ export class Point {
     get x() {return this.position.x}
     get y() {return this.position.y}
 
-    gravityScale = new Vector2(0, 1);
+    gravityScale = new Vector2();
+    damping = new Vector2()
 
     drawingParams = {
         strokeStyle: "black",
